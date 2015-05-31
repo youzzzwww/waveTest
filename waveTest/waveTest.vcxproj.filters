@@ -30,6 +30,18 @@
     <ClCompile Include="buffer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="package.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="tcpSocket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rtpTime.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="tcpCommunication.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="waveOut.h">
@@ -48,6 +60,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\include\ServerClient.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="package.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tcpSocket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="rtpTime.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tcpCommunication.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

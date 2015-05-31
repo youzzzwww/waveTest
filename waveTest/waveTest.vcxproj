@@ -78,15 +78,23 @@
   <ItemGroup>
     <ClCompile Include="buffer.cpp" />
     <ClCompile Include="newAudioDecode.cpp" />
+    <ClCompile Include="package.cpp" />
     <ClCompile Include="rtpRecv.cpp" />
+    <ClCompile Include="rtpTime.cpp" />
+    <ClCompile Include="tcpCommunication.cpp" />
+    <ClCompile Include="tcpSocket.cpp" />
     <ClCompile Include="waveOut.cpp" />
     <ClCompile Include="waveTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\ServerClient.h" />
     <ClInclude Include="newAudioDecode.h" />
+    <ClInclude Include="package.h" />
     <ClInclude Include="rtpRecv.h" />
+    <ClInclude Include="rtpTime.h" />
     <ClInclude Include="structIni.h" />
+    <ClInclude Include="tcpCommunication.h" />
+    <ClInclude Include="tcpSocket.h" />
     <ClInclude Include="waveFileWrite.h" />
     <ClInclude Include="waveOut.h" />
   </ItemGroup>
