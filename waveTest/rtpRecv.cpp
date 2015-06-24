@@ -20,7 +20,7 @@ int rtpRecvInitalize(int port, bool adapt, int jittcomp)
 	rtp_session_enable_adaptive_jitter_compensation(session,adapt);
 	rtp_session_set_jitter_compensation(session,jittcomp);
 	rtp_session_set_payload_type(session,0);
-	rtp_session_set_recv_buf_size(session, 100);
+	rtp_session_set_recv_buf_size(session, 400);
 	rtp_session_signal_connect(session,"ssrc_changed",(RtpCallback)rtp_session_reset,0);
 	return 1;
 }
@@ -47,8 +47,10 @@ DWORD WINAPI rtpRecv(LPVOID pParam)
 {
 	DoubleBuf *doubleBuf = (DoubleBuf*)pParam;
 	CCircularBuf *buffer = &(doubleBuf->rtpBuf);
+	networkImpairment net_impair = doubleBuf->net_impair;
 	int package_size = 0;
 	int count=0;
+	net_impair.countIni();
 
 	int prev_seq_num = -1,current_seq_num=-1;
 	int loss_num = 0,i;
@@ -68,7 +70,9 @@ DWORD WINAPI rtpRecv(LPVOID pParam)
 				prev_seq_num = current_seq_num;
 			else
 				loss_num = current_seq_num-prev_seq_num-1;
+
 			prev_seq_num = current_seq_num;
+			net_impair.addLossNum(loss_num);
 
 			package_size = rtp_get_payload(mp, &mp->b_rptr);
 			//如果接受的是空包，退出线程

@@ -1,4 +1,5 @@
 #include "tcpCommunication.h"
+#include "structIni.h"
 
 TcpServer* tcp_server;
 TcpTransmission* tcp_trans;
@@ -13,9 +14,17 @@ int tcpIni(const char* ip, int port)
 }
 DWORD WINAPI tcpCommunicationStart(LPVOID pParam)
 {
+	networkImpairment* net_impair = (networkImpairment*)pParam;
 	tcp_trans = tcp_server->Accept();
-	Data* data = new Data("hello");
-	tcp_trans->Send(data);
+	Data* data = new Data();
+
+	net_impair->interval_every_send = 1000;
+	while(1)
+	{
+		data->setString(net_impair->getFrameNumPerPacket());
+		tcp_trans->Send(data);
+		Sleep(net_impair->getInterval());
+	}
 
 	return 0;
 }

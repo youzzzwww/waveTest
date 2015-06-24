@@ -1,3 +1,4 @@
+#pragma once
 #include "tcpSocket.h"
 
 int tcpIni(const char* ip, int port);

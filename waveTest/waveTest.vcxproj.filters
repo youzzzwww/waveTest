@@ -42,6 +42,9 @@
     <ClCompile Include="tcpCommunication.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="networkImpair.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="waveOut.h">

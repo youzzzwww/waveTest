@@ -331,7 +331,11 @@ DoubleBuf::DoubleBuf(int rtpSize, int playSize)
 	this->rtpBuf.createBuf(rtpSize, hRtpWrite, hRtpRead);
 	this->playBuf.createBuf(playSize, hPlayWrite, hPlayRead);
 }
-
+DoubleBuf::~DoubleBuf()
+{
+	this->rtpBuf.releaseBuf();
+	this->playBuf.releaseBuf();
+}
 int DoubleBuf::setEvent(void)
 {
 	hRtpWrite = CreateEvent(NULL, FALSE, FALSE, NULL);
